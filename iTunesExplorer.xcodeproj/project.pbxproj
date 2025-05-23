@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F8BD9D3E2DE0C97D00FA4485 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = F8BD9D3D2DE0C97D00FA4485 /* Factory */; };
+		F8BD9D412DE0CAC900FA4485 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = F8BD9D402DE0CAC900FA4485 /* Lottie */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8BD9D3E2DE0C97D00FA4485 /* Factory in Frameworks */,
+				F8BD9D412DE0CAC900FA4485 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +86,7 @@
 			name = iTunesExplorer;
 			packageProductDependencies = (
 				F8BD9D3D2DE0C97D00FA4485 /* Factory */,
+				F8BD9D402DE0CAC900FA4485 /* Lottie */,
 			);
 			productName = iTunesExplorer;
 			productReference = F87AA93F2DE0C4F000E82F6E /* iTunesExplorer.app */;
@@ -115,6 +118,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				F8BD9D3C2DE0C97D00FA4485 /* XCRemoteSwiftPackageReference "Factory" */,
+				F8BD9D3F2DE0CAC900FA4485 /* XCRemoteSwiftPackageReference "lottie-spm" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F87AA9402DE0C4F000E82F6E /* Products */;
@@ -350,6 +354,14 @@
 				minimumVersion = 2.5.2;
 			};
 		};
+		F8BD9D3F2DE0CAC900FA4485 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -357,6 +369,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F8BD9D3C2DE0C97D00FA4485 /* XCRemoteSwiftPackageReference "Factory" */;
 			productName = Factory;
+		};
+		F8BD9D402DE0CAC900FA4485 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F8BD9D3F2DE0CAC900FA4485 /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -16,9 +16,9 @@ struct SplashView<ViewModel: SplashViewModelProtocol>: View {
     
     var body: some View {
         ZStack {
-            Color.red
-
-            EmptyView()
+            Color.Brand.white
+            
+            LottieView(animationName: "teya_splash")
         }
         .ignoresSafeArea()
         .onAppear { viewModel.load() }
