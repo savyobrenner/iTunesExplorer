@@ -27,9 +27,11 @@ class SplashCoordinator: BaseCoordinator {
     func navigate(to path: Navigation) {
         switch path {
         case .home:
-            let homeCoordinator = HomeCoordinator(navigationController: .init())
+            let homeCoordinator = HomeCoordinator(navigationController: navigationController)
+            parentCoordinator?.childCoordinators.removeAll { $0 === self }
+            parentCoordinator?.childCoordinators.append(homeCoordinator)
             
-            present(homeCoordinator, animated: true)
+            homeCoordinator.start()
         }
     }
 }

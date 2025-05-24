@@ -31,9 +31,12 @@ class HomeCoordinator: BaseCoordinator {
     func navigate(to path: Navigation) {
         switch path {
         case let .details(album):
-            let albumDetailsCoordinator = AlbumDetailsCoordinator(album: album, navigationController: .init())
+            let albumDetailsCoordinator = AlbumDetailsCoordinator(
+                album: album,
+                navigationController: self.navigationController
+            )
             
-            present(albumDetailsCoordinator, animated: true)
+            push(albumDetailsCoordinator, animated: true)
         }
     }
 }

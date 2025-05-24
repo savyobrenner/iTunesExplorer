@@ -29,16 +29,6 @@ class AlbumDetailsCoordinator: BaseCoordinator {
         )
             .insideHostingController()
         
-        navigationController.setViewControllers([viewcontroller], animated: false)
-    }
-    
-    enum Navigation {
-        case home
-    }
-    
-    func navigate(to path: Navigation) {
-        switch path {
-        case .home: break
-        }
+        navigationController.pushViewController(viewcontroller, animated: true)
     }
 }
