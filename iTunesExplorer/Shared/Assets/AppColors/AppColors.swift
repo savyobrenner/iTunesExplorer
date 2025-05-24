@@ -15,6 +15,10 @@ extension Color {
         static let red = Color.red
         static let gray = Color.gray
         
+        static let success = Color.green
+        static let warning = Color.orange
+        static let error = Color.red
+        
         ///#dde048
         static let primary = Color("primary_color")
         
