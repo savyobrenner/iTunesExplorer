@@ -19,6 +19,8 @@ struct AlbumRowView: View {
         HStack(alignment: .top, spacing: 16) {
             CachedImageView(url: imageURL) {
                 ProgressView()
+                    .scaleEffect(1.5)
+                    .tint(Color.Brand.primaryThirdPalette)
             }
             .frame(width: 60, height: 60)
             .clipShape(RoundedRectangle(cornerRadius: 8))

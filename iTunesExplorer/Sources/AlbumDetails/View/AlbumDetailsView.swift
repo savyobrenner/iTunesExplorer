@@ -22,6 +22,8 @@ struct AlbumDetailsView<ViewModel: AlbumDetailsViewModelProtocol>: View {
                 VStack(spacing: 24) {
                     CachedImageView(url: viewModel.album.imageURL(for: .large)) {
                         ProgressView()
+                            .scaleEffect(1.5)
+                            .tint(Color.Brand.primaryThirdPalette)
                     }
                     .aspectRatio(contentMode: .fill)
                     .frame(maxWidth: .infinity)
