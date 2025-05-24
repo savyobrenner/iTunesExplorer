@@ -49,6 +49,8 @@ class HomeViewModel: BaseViewModel<HomeCoordinator>, HomeViewModelProtocol {
                 
                 self.albums = response.albums
             } catch {
+                HapticFeedbackGenerator.error()
+                
                 self.handleNetworkError(error)
             }
         }
@@ -56,6 +58,8 @@ class HomeViewModel: BaseViewModel<HomeCoordinator>, HomeViewModelProtocol {
     
     func openDetails(for album: AlbumItemResponse) {
         analytics.collect(event: AnalyticsEvents.homeScreenSelectAlbum(name: album.name.label))
+        
+        HapticFeedbackGenerator.selection()
         
         coordinator?.navigate(to: .details(album: album))
     }

@@ -33,6 +33,8 @@ class AlbumDetailsViewModel: BaseViewModel<AlbumDetailsCoordinator>, AlbumDetail
     override func dismiss(animated: Bool = true) {
         analytics.collect(event: AnalyticsEvents.albumDetailsScreenBackButton)
         
+        HapticFeedbackGenerator.selection()
+        
         super.dismiss(animated: animated)
     }
 }
