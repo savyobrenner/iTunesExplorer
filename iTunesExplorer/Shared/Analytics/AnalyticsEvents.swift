@@ -5,7 +5,7 @@
 //  Created by Savyo Brenner on 24/05/25.
 //
 
-enum AnalyticsEvents: AnalyticsEventsProtocol {
+enum AnalyticsEvents: AnalyticsEventsProtocol, Equatable {
     
     case appLaunch
     

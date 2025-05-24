@@ -10,7 +10,7 @@ import SwiftUI
 class HomeViewModel: BaseViewModel<HomeCoordinator>, HomeViewModelProtocol {
     
     @Published
-    private(set) var albums: [AlbumItemResponse] = []
+    var albums: [AlbumItemResponse] = []
     
     @Published
     private(set) var isOnline = true {
@@ -29,7 +29,7 @@ class HomeViewModel: BaseViewModel<HomeCoordinator>, HomeViewModelProtocol {
             .replacingOccurrences(of: "%@", with: userLocale.countryName)
     }
     
-    private var userLocale: LocalizationHelper {
+    var userLocale: LocalizationHelper {
         LocalizationHelper.from(deviceLocale: .current)
     }
     
