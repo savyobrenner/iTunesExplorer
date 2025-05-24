@@ -41,7 +41,9 @@ struct HomeView<ViewModel: HomeViewModelProtocol>: View {
                                     imageURL: album.imageURL(for: .medium),
                                     albumName: album.name.label,
                                     artistName: album.artist.label,
-                                    price: album.price.label
+                                    price: album.price.label,
+                                    genre: album.category.attributes.label,
+                                    releaseDate: album.releaseDate.label
                                 )
                                 .padding(.horizontal)
                             }

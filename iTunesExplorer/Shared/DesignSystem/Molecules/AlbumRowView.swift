@@ -12,9 +12,11 @@ struct AlbumRowView: View {
     let albumName: String
     let artistName: String
     let price: String?
+    let genre: String?
+    let releaseDate: String?
     
     var body: some View {
-        HStack(spacing: 16) {
+        HStack(alignment: .top, spacing: 16) {
             CachedImageView(url: imageURL) {
                 ProgressView()
             }
@@ -25,21 +27,29 @@ struct AlbumRowView: View {
                 Text(albumName)
                     .font(.brand(.bold, size: 16))
                     .lineLimit(2)
-                    .foregroundStyle(Color.Brand.black)
+                    .foregroundStyle(Color.Brand.secondary)
                 
                 Text(artistName)
                     .font(.brand(.regular, size: 14))
-                    .foregroundStyle(Color.Brand.black)
+                    .foregroundStyle(Color.Brand.secondary)
                     .lineLimit(1)
-
-                if let price {
-                    Text(price)
+                
+                if let genre {
+                    Text(genre)
                         .font(.brand(.light, size: 12))
-                        .foregroundStyle(Color.Brand.black)
+                        .foregroundStyle(Color.Brand.gray)
+                        .lineLimit(1)
                 }
             }
-
+            
             Spacer()
+            
+            if let price {
+                Text(price)
+                    .font(.brand(.black, size: 14))
+                    .foregroundStyle(Color.Brand.primaryThirdPalette)
+                    .multilineTextAlignment(.trailing)
+            }
         }
         .padding(12)
         .background(
@@ -61,7 +71,9 @@ struct AlbumRowView: View {
             imageURL: .init(string: "https://pbs.twimg.com/profile_images/1642888479284576258/gv0ezo99_400x400.jpg")!,
             albumName: "Realce",
             artistName: "Gilberto Gil",
-            price: "R$ 19,90"
+            price: "R$ 19,90",
+            genre: "MPB",
+            releaseDate: "25/09/2000"
         )
     }
 }
