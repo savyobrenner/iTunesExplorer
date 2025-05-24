@@ -21,18 +21,19 @@ struct AlbumRowView: View {
 
             VStack(alignment: .leading, spacing: 4) {
                 Text(albumName)
-                    .font(.headline)
+                    .font(.brand(.bold, size: 16))
                     .lineLimit(1)
+                    .foregroundStyle(Color.Brand.black)
 
                 Text(artistName)
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
+                    .font(.brand(.regular, size: 14))
+                    .foregroundStyle(Color.Brand.black)
                     .lineLimit(1)
 
                 if let price {
                     Text(price)
-                        .font(.caption)
-                        .foregroundColor(.blue)
+                        .font(.brand(.light, size: 12))
+                        .foregroundStyle(Color.Brand.black)
                 }
             }
 
