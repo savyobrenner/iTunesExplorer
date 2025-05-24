@@ -36,7 +36,7 @@ struct AlbumRowView: View {
                 
                 if let genre {
                     Text(genre)
-                        .font(.brand(.light, size: 12))
+                        .font(.brand(.regular, size: 12))
                         .foregroundStyle(Color.Brand.gray)
                         .lineLimit(1)
                 }
