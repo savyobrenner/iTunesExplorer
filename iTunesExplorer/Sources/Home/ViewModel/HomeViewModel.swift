@@ -15,6 +15,8 @@ class HomeViewModel: BaseViewModel<HomeCoordinator>, HomeViewModelProtocol {
     @Published
     private(set) var isOnline = true {
         didSet {
+            guard oldValue != isOnline else { return }
+
             if isOnline {
                 currentAlert = .init(type: .success, title: "online.message".localized, position: .bottom)
             } else {
@@ -109,9 +111,7 @@ private extension HomeViewModel {
     func fetchData() {
         isLoading = true
         
-        if !isOnline {
-            isOnline = reachability.isConnected
-        }
+        isOnline = reachability.isConnected
         
         coordinator?.autoCancellingTask { @MainActor in
             defer { self.isLoading = false }

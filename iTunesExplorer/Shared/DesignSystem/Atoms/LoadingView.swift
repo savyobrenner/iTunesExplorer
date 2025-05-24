@@ -13,6 +13,8 @@ struct LoadingView: View {
             Spacer()
             
             ProgressView()
+                .scaleEffect(1.5)
+                .tint(Color.Brand.primaryThirdPalette)
             
             Spacer()
         }
