@@ -39,6 +39,27 @@ struct AlbumRowView: View {
 
             Spacer()
         }
-        .padding(.vertical, 8)
+        .padding()
+        .background(Color.white)
+        .cornerRadius(12)
+        .shadow(color: .black.opacity(0.05), radius: 4, x: 0, y: 2)
     }
 }
+
+#if DEBUG
+
+// Using force unwrap here because is only for preview and this code does not go to production
+#Preview {
+    ZStack {
+        Color.Brand.black
+        
+        AlbumRowView(
+            imageURL: .init(string: "https://pbs.twimg.com/profile_images/1642888479284576258/gv0ezo99_400x400.jpg")!,
+            albumName: "Realce",
+            artistName: "Gilberto Gil",
+            price: "R$ 19,90"
+        )
+    }
+}
+
+#endif

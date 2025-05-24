@@ -31,3 +31,13 @@ struct CachedImageView: View {
     }
 }
 
+
+#if DEBUG
+
+/// Preview-only: Using force unwrap for clarity since the URL is static and this is not shipped to production.
+#Preview {
+    CachedImageView(url: .init(string: "https://pbs.twimg.com/profile_images/1642888479284576258/gv0ezo99_400x400.jpg")!)
+        .frame(width: 100, height: 100)
+}
+
+#endif
