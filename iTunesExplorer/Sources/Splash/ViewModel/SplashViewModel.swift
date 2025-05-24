@@ -22,6 +22,6 @@ class SplashViewModel: BaseViewModel<SplashCoordinator>, SplashViewModelProtocol
     }
     
     func load() {
-
+        coordinator?.navigate(to: .home)
     }
 }

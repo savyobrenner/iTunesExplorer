@@ -12,6 +12,7 @@ struct LottieView: UIViewRepresentable {
     var animationName: String
     var loopMode: LottieLoopMode = .autoReverse
     var contentMode: UIView.ContentMode = .scaleAspectFit
+    var onCompletion: (() -> Void)? = nil
 
     func makeUIView(context: Context) -> UIView {
         let view = UIView(frame: .zero)
@@ -29,6 +30,12 @@ struct LottieView: UIViewRepresentable {
             animationView.widthAnchor.constraint(equalTo: view.widthAnchor),
             animationView.heightAnchor.constraint(equalTo: view.heightAnchor)
         ])
+        
+        animationView.play { finished in
+            if finished {
+                onCompletion?()
+            }
+        }
         
         return view
     }
