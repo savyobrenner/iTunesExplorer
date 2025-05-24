@@ -23,8 +23,8 @@ struct AlbumRowView: View {
             
             VStack(alignment: .leading, spacing: 4) {
                 Text(albumName)
-                    .font(.brand(.black, size: 16))
-                    .lineLimit(1)
+                    .font(.brand(.bold, size: 16))
+                    .lineLimit(2)
                     .foregroundStyle(Color.Brand.black)
                 
                 Text(artistName)

@@ -6,9 +6,9 @@
 //
 
 enum BrandFontName: String {
-    case black = "ProximaNova-Black"
-    case bold = "ProximaNova-Bold"
-    case regular = "ProximaNova-Regular"
-    case semibold = "ProximaNova-Semibold"
-    case light = "ProximaNova-Light"
+    case black = "Figtree-Black"
+    case bold = "Figtree-Bold"
+    case regular = "Figtree-Regular"
+    case semibold = "Figtree-SemiBold"
+    case light = "Figtree-Light"
 }
