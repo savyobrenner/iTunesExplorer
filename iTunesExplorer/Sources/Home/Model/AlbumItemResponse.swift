@@ -16,6 +16,11 @@ struct AlbumItemResponse: Codable {
     let artist: Artist
     let category: Category
     let releaseDate: ReleaseDate
+    let rawID: ID
+    
+    var id: String {
+        rawID.attributes.imID
+    }
 
     private enum CodingKeys: String, CodingKey {
         case name = "im:name"
@@ -26,6 +31,7 @@ struct AlbumItemResponse: Codable {
         case artist = "im:artist"
         case category
         case releaseDate = "im:releaseDate"
+        case rawID = "id"
     }
 }
 

@@ -41,7 +41,7 @@ struct HomeView<ViewModel: HomeViewModelProtocol>: View {
                         }
                         
                         LazyVStack(spacing: 12) {
-                            ForEach(viewModel.albums, id: \.name.label) { album in
+                            ForEach(viewModel.albums, id: \.id) { album in
                                 AlbumRowView(
                                     imageURL: album.imageURL(for: .medium),
                                     albumName: album.name.label,

@@ -122,7 +122,8 @@ import Factory
         title: .init(label: "The Dark Side of the Moon - Pink Floyd"),
         artist: .init(label: "Pink Floyd", attributes: .init(href: URL(string: "https://pbs.twimg.com/profile_images/1642888479284576258/gv0ezo99_400x400.jpg")!)),
         category: .init(attributes: .init(id: "1", term: "Rock", scheme: "https://example.com", label: "Rock")),
-        releaseDate: .init(label: "1973-03-01T00:00:00-07:00", attributes: .init(label: "1973-03-01"))
+        releaseDate: .init(label: "1973-03-01T00:00:00-07:00", attributes: .init(label: "1973-03-01")),
+        rawID: .init(label: "virtual_id", attributes: .init(imID: "virtual_id"))
     )
     
     

@@ -60,6 +60,8 @@ class HomeViewModel: BaseViewModel<HomeCoordinator>, HomeViewModelProtocol {
     }
     
     func loadData() {
+        guard albums.isEmpty else { return }
+        
         guard checkIfUserIsUsingMobileData() else {
             fetchData()
             return
