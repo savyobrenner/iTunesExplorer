@@ -27,7 +27,10 @@ extension HomeEndpoint: Endpoint {
     }
     
     var requestSpecificHeaders: [String: String] {
-        return [:]
+        switch self {
+        case .topAlbums:
+            return ["Content-Type": "application/json"]
+        }
     }
     
     var queryParameters: [URLQueryItem] {

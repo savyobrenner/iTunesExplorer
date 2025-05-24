@@ -8,5 +8,5 @@
 import Foundation
 
 protocol HomeServicesProtocol {
-    func fetchTopAlbums(limit: Int, country: String) async throws -> String
+    func fetchTopAlbums(limit: Int, country: String) async throws -> AlbumResponse
 }

@@ -16,12 +16,16 @@ struct HomeView<ViewModel: HomeViewModelProtocol>: View {
 
     var body: some View {
         ZStack {
-            Color.Brand.black
-
-            EmptyView()
+            Color.Brand.white
+            
+            if viewModel.isLoading {
+                LoadingView()
+            } else {
+                Color.Brand.black
+            }
         }
         .ignoresSafeArea()
-        .onAppear { }
+        .onAppear { viewModel.loadData() }
     }
 }
 
@@ -30,7 +34,8 @@ import Factory
 
 #Preview {
 HomeView(viewModel: HomeViewModel(
-        coordinator: HomeCoordinator(navigationController: .init())
+    coordinator: HomeCoordinator(navigationController: .init()),
+    homeServices: Container.shared.homeServices()
     ))
 }
 #endif

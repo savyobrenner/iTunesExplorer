@@ -8,5 +8,5 @@
 import Foundation
 
 protocol HomeViewModelProtocol: BaseViewModelProtocol {
-    
+    func loadData()
 }

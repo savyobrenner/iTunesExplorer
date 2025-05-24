@@ -9,16 +9,16 @@ import Foundation
 
 final class HomeServices: HomeServicesProtocol {
     
-    private let network: NetworkClient
+    private let network: NetworkProtocol
 
-    init(network: NetworkClient) {
+    init(network: NetworkProtocol) {
         self.network = network
     }
     
-    func fetchTopAlbums(limit: Int, country: String) async throws -> String {
+    func fetchTopAlbums(limit: Int, country: String) async throws -> AlbumResponse {
         let response = try await network.sendRequest(
             endpoint: HomeEndpoint.topAlbums(limit: limit, country: country),
-            responseModel: String.self
+            responseModel: AlbumResponse.self
         )
 
         return response

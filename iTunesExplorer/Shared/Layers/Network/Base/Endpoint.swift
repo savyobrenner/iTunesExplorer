@@ -21,6 +21,10 @@ extension Endpoint {
     var host: String { AppEnvironment.baseURL }
 
     var url: URL? {
-        .init(string: "\(host)/\(path)/")
+        .init(string: "\(host)/\(path)")
+    }
+    
+    var requestSpecificHeaders: [String: String] {
+        [:]
     }
 }
