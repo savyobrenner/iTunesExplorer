@@ -26,7 +26,6 @@ struct CachedImageView<Placeholder: View>: View {
         } else {
             KFImage(url)
                 .cacheOriginalImage()
-                .loadDiskFileSynchronously()
                 .placeholder { placeholder() }
                 .onFailure { _ in didFail = true }
                 .resizable()
