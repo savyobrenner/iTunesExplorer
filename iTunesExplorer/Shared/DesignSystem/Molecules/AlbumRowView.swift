@@ -62,7 +62,8 @@ struct AlbumRowView: View {
 
 #if DEBUG
 
-// Using force unwrap here because is only for preview and this code does not go to production
+/// Preview-only: Using force unwrap for clarity since the URL is static and this is not shipped to production.
+
 #Preview {
     ZStack {
         Color.Brand.black

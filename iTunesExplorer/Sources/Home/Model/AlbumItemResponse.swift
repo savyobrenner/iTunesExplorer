@@ -110,7 +110,7 @@ extension AlbumItemResponse {
     }
     
     struct ArtistAttributes: Decodable {
-        let href: String
+        let href: URL
     }
     
     struct Category: Decodable {
