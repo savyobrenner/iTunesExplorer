@@ -9,7 +9,11 @@ import SwiftUI
 
 class HomeViewModel: BaseViewModel<HomeCoordinator>, HomeViewModelProtocol {
     
+    @Published
+    var albums: [AlbumItemResponse] = []
+    
     private var albumsLimits = 100
+    
     private let homeServices: HomeServicesProtocol
     
     init(coordinator: HomeCoordinator?, homeServices: HomeServicesProtocol) {
@@ -28,7 +32,7 @@ class HomeViewModel: BaseViewModel<HomeCoordinator>, HomeViewModelProtocol {
                 let country = LocalizationHelper.from(deviceLocale: .current).iTunesCountryCode
                 let response = try await self.homeServices.fetchTopAlbums(limit: self.albumsLimits, country: country)
                 
-                print(response)
+                self.albums = response.albums
             } catch {
                 self.handleNetworkError(error)
             }

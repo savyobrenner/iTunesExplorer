@@ -38,6 +38,6 @@ class BaseViewModel<CoordinatorType: BaseCoordinator>: BaseViewModelProtocol {
     }
     
     func handleNetworkError(_ error: Error) {
-        
+        debugPrint(error.localizedDescription)
     }
 }

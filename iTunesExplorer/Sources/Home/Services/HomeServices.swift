@@ -15,10 +15,10 @@ final class HomeServices: HomeServicesProtocol {
         self.network = network
     }
     
-    func fetchTopAlbums(limit: Int, country: String) async throws -> AlbumResponse {
+    func fetchTopAlbums(limit: Int, country: String) async throws -> AlbumsResponse {
         let response = try await network.sendRequest(
             endpoint: HomeEndpoint.topAlbums(limit: limit, country: country),
-            responseModel: AlbumResponse.self
+            responseModel: AlbumsResponse.self
         )
 
         return response

@@ -17,14 +17,34 @@ struct HomeView<ViewModel: HomeViewModelProtocol>: View {
     var body: some View {
         ZStack {
             Color.Brand.white
-            
+                .ignoresSafeArea()
+
             if viewModel.isLoading {
                 LoadingView()
             } else {
-                Color.Brand.black
+                VStack(alignment: .leading, spacing: 16) {
+                    Text("Top Albums")
+                        .font(.brand(.bold, size: 32))
+                        .foregroundStyle(Color.Brand.black)
+                        .padding(.horizontal)
+                    
+                    ScrollView {
+                        LazyVStack(spacing: 12) {
+                            ForEach(viewModel.albums, id: \.id.label) { album in
+                                AlbumRowView(
+                                    imageURL: album.imageURL(for: .medium),
+                                    albumName: album.name.label,
+                                    artistName: album.artist.label,
+                                    price: album.price.label
+                                )
+                                .padding(.horizontal)
+                            }
+                        }
+                        .padding(.vertical)
+                    }
+                }
             }
         }
-        .ignoresSafeArea()
         .onAppear { viewModel.loadData() }
     }
 }

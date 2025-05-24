@@ -8,23 +8,25 @@
 import SwiftUI
 
 struct AlbumRowView: View {
-    let imageURL: URL
+    let imageURL: URL?
     let albumName: String
     let artistName: String
     let price: String?
-
+    
     var body: some View {
         HStack(spacing: 16) {
-            CachedImageView(url: imageURL)
-                .frame(width: 60, height: 60)
-                .cornerRadius(8)
-
+            CachedImageView(url: imageURL) {
+                ProgressView()
+            }
+            .frame(width: 60, height: 60)
+            .clipShape(RoundedRectangle(cornerRadius: 8))
+            
             VStack(alignment: .leading, spacing: 4) {
                 Text(albumName)
-                    .font(.brand(.bold, size: 16))
+                    .font(.brand(.black, size: 16))
                     .lineLimit(1)
                     .foregroundStyle(Color.Brand.black)
-
+                
                 Text(artistName)
                     .font(.brand(.regular, size: 14))
                     .foregroundStyle(Color.Brand.black)
@@ -39,10 +41,12 @@ struct AlbumRowView: View {
 
             Spacer()
         }
-        .padding()
-        .background(Color.white)
-        .cornerRadius(12)
-        .shadow(color: .black.opacity(0.05), radius: 4, x: 0, y: 2)
+        .padding(12)
+        .background(
+            RoundedRectangle(cornerRadius: 16)
+                .fill(Color.white)
+                .shadow(color: .black.opacity(0.05), radius: 4, x: 0, y: 2)
+        )
     }
 }
 
