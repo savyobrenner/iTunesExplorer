@@ -2,7 +2,26 @@
   "sourceLanguage" : "en",
   "strings" : {
     "•" : {
-
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "•"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "•"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "•"
+          }
+        }
+      }
     },
     "error.invalid_response" : {
       "extractionState" : "manual",
@@ -11,6 +30,24 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Invalid response from server"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Respuesta inválida del servidor"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resposta inválida do servidor"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resposta inválida do servidor"
           }
         }
       }
@@ -23,6 +60,24 @@
             "state" : "translated",
             "value" : "Connection error"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error de conexión"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erro de conexão"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erro de conexão"
+          }
         }
       }
     },
@@ -33,6 +88,24 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Internal server error"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error interno del servidor"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erro interno do servidor"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erro interno do servidor"
           }
         }
       }
@@ -45,6 +118,24 @@
             "state" : "translated",
             "value" : "Request timed out"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tiempo de solicitud agotado"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tempo de solicitação esgotado"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tempo de solicitação esgotado"
+          }
         }
       }
     },
@@ -55,6 +146,24 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Unknown error"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error desconocido"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erro desconhecido"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erro desconhecido"
           }
         }
       }
@@ -67,6 +176,24 @@
             "state" : "translated",
             "value" : "Listen on Apple Music"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escuchar en Apple Music"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvir no Apple Music"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvir no Apple Music"
+          }
         }
       }
     },
@@ -77,6 +204,24 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Price: %@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Precio: %@"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preço: %@"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preço: %@"
           }
         }
       }
@@ -89,6 +234,24 @@
             "state" : "translated",
             "value" : "Top %d Albums in %@"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Top %d álbumes en %@"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Top %d álbuns em %@"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Top %d álbuns em %@"
+          }
         }
       }
     },
@@ -99,6 +262,24 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ tracks"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ canciones"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ faixas"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ faixas"
           }
         }
       }

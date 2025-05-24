@@ -9,7 +9,8 @@ import Foundation
 
 enum LocalizationHelper: String, CaseIterable {
     case unitedStates = "us"
-    case portugal = "br"
+    case portugal = "pt"
+    case brazil = "br"
     case spain = "es"
 
     var iTunesCountryCode: String {
@@ -22,6 +23,8 @@ enum LocalizationHelper: String, CaseIterable {
             return "United States"
         case .portugal:
             return "Portugal"
+        case .brazil:
+            return "Brasil"
         case .spain:
             return "España"
         }
