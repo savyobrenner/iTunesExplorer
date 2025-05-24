@@ -33,6 +33,6 @@ struct AppError: Error, Codable, Equatable {
     }
     
     static var invalidResponse: AppError {
-        return AppError(statusCode: AppConstants.statusCodeForParseError, message: "error.invalid_response".localized)
+        return AppError(statusCode: -10, message: "error.invalid_response".localized)
     }
 }
