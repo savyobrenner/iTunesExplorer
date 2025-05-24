@@ -15,60 +15,85 @@ struct AlbumDetailsView<ViewModel: AlbumDetailsViewModelProtocol>: View {
     }
     
     var body: some View {
-        ZStack {
-            Color.Brand.white
-                .ignoresSafeArea()
+        ZStack(alignment: .topLeading) {
+            Color.Brand.white.ignoresSafeArea()
             
             ScrollView {
-                VStack(alignment: .leading, spacing: 16) {
+                VStack(spacing: 24) {
                     CachedImageView(url: viewModel.album.imageURL(for: .large)) {
                         ProgressView()
                     }
-                    .frame(height: 300)
+                    .aspectRatio(contentMode: .fill)
+                    .frame(maxWidth: .infinity)
                     .clipped()
-                    .clipShape(RoundedRectangle(cornerRadius: 16))
-                    .padding(.horizontal)
+                    .background(Color.Brand.white)
                     
-                    VStack(alignment: .leading, spacing: 8) {
+                    VStack(alignment: .leading, spacing: 12) {
                         Text(viewModel.album.name.label)
-                            .font(.brand(.bold, size: 24))
+                            .font(.brand(.bold, size: 26))
                             .foregroundStyle(Color.Brand.black)
                         
                         Text(viewModel.album.artist.label)
-                            .font(.brand(.regular, size: 18))
-                            .foregroundStyle(Color.Brand.black)
-                        
-                        Text("\(viewModel.album.itemCount.label) tracks")
-                            .font(.brand(.light, size: 14))
+                            .font(.brand(.regular, size: 20))
                             .foregroundStyle(Color.Brand.gray)
                         
-                        if let releaseDate = viewModel.formattedReleaseDate {
-                            Text("Released: \(releaseDate)")
-                                .font(.brand(.light, size: 14))
-                                .foregroundStyle(Color.Brand.gray)
+                        HStack(spacing: 6) {
+                            Text(viewModel.album.category.attributes.label)
+                            
+                            Text("•")
+                            
+                            Text("\(viewModel.album.itemCount.label) tracks")
+                            
+                            Text("•")
+                            
+                            Text(viewModel.album.releaseDate.attributes.label)
                         }
-                        
-                        Text("Genre: \(viewModel.album.category.attributes.label)")
-                            .font(.brand(.light, size: 14))
-                            .foregroundStyle(Color.Brand.gray)
+                        .font(.brand(.light, size: 16))
+                        .foregroundStyle(Color.Brand.gray)
                         
                         Text("Price: \(viewModel.album.price.label)")
-                            .font(.brand(.light, size: 14))
-                            .foregroundStyle(Color.Brand.gray)
-                        
-                        if let artistURL = viewModel.album.artist.attributes?.href {
-                            Link("More from \(viewModel.album.artist.label)", destination: artistURL)
-                                .font(.brand(.regular, size: 14))
-                                .foregroundStyle(.blue)
-                                .padding(.top, 8)
-                        }
+                            .font(.brand(.semibold, size: 16))
+                            .foregroundStyle(Color.Brand.primaryThirdPalette)
                     }
-                    .padding(.horizontal)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding()
+                    .background(
+                        RoundedRectangle(cornerRadius: 20)
+                            .fill(Color.white)
+                            .shadow(color: Color.black.opacity(0.05), radius: 10, x: 0, y: 4)
+                    )
+                    .padding(.horizontal, 10)
                 }
-                .padding(.top)
             }
+            .ignoresSafeArea()
+            
+            BackButton() {
+                viewModel.dismiss(animated: true)
+            }
+            .padding(.leading, 24)
+            .padding(.top)
+            
+            VStack(alignment: .center) {
+                Spacer()
+                
+                if let artistURL = viewModel.album.artist.attributes?.href {
+                    Link(destination: artistURL) {
+                        HStack {
+                            Image(systemName: "music.note")
+                            
+                            Text("Listen on Apple Music")
+                                .font(.brand(.bold, size: 24))
+                        }
+                        .foregroundStyle(.white)
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 10)
+                        .background(Color.red)
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                    }
+                }
+            }
+            .frame(maxWidth: .infinity)
         }
-        .onAppear { }
     }
 }
 
@@ -108,4 +133,3 @@ import Factory
     ))
 }
 #endif
-

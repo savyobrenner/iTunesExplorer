@@ -11,4 +11,5 @@ protocol HomeViewModelProtocol: BaseViewModelProtocol {
     var albums: [AlbumItemResponse] { get }
     
     func loadData()
+    func openDetails(for album: AlbumItemResponse)
 }

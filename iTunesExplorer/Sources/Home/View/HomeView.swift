@@ -46,6 +46,9 @@ struct HomeView<ViewModel: HomeViewModelProtocol>: View {
                                     releaseDate: album.releaseDate.label
                                 )
                                 .padding(.horizontal)
+                                .onTapGesture {
+                                    viewModel.openDetails(for: album)
+                                }
                             }
                         }
                         .padding(.top, 16)

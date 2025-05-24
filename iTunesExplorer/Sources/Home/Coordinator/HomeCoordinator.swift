@@ -20,12 +20,15 @@ class HomeCoordinator: BaseCoordinator {
     }
     
     enum Navigation {
-        case home
+        case details(album: AlbumItemResponse)
     }
     
     func navigate(to path: Navigation) {
         switch path {
-        case .home: break
+        case let .details(album):
+            let albumDetailsCoordinator = AlbumDetailsCoordinator(album: album, navigationController: .init())
+            
+            present(albumDetailsCoordinator, animated: true)
         }
     }
 }

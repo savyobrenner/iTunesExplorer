@@ -38,4 +38,8 @@ class HomeViewModel: BaseViewModel<HomeCoordinator>, HomeViewModelProtocol {
             }
         }
     }
+    
+    func openDetails(for album: AlbumItemResponse) {
+        coordinator?.navigate(to: .details(album: album))
+    }
 }
