@@ -17,7 +17,8 @@ extension AlbumItemResponse {
             title: .init(label: "Test Album Title"),
             artist: .init(label: "Test Artist", attributes: nil),
             category: .init(attributes: .init(id: "1", term: "Pop", scheme: "", label: "Pop")),
-            releaseDate: .init(label: "2025-01-01", attributes: .init(label: "January 1, 2025"))
+            releaseDate: .init(label: "2025-01-01", attributes: .init(label: "January 1, 2025")),
+            rawID: .init(label: "virtual_id", attributes: .init(imID: "virtual_id"))
         )
     }
 }

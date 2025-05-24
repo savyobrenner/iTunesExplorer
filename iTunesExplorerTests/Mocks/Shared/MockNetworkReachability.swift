@@ -10,6 +10,7 @@
 final class MockNetworkReachability: NetworkReachabilityProtocol {
     var onStatusChange: ((Bool) -> Void)?
     var isConnected = true
+    var isCellular = false
     
     func simulateStatusChange(to status: Bool) {
         isConnected = status
