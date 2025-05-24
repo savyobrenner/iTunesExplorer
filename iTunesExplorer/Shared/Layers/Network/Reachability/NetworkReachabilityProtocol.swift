@@ -7,5 +7,6 @@
 
 protocol NetworkReachabilityProtocol {
     var isConnected: Bool { get }
+    var isCellular: Bool { get }
     var onStatusChange: ((Bool) -> Void)? { get set }
 }

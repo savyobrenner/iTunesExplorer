@@ -15,6 +15,10 @@ final class NetworkMonitor: NetworkReachabilityProtocol {
     @Published
     private(set) var isConnected = true
     
+    var isCellular: Bool {
+        monitor.currentPath.isExpensive
+    }
+    
     var onStatusChange: ((Bool) -> Void)?
 
     init() {

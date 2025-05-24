@@ -14,12 +14,12 @@ struct OfflineModeBanner: View {
                 Image(systemName: "wifi.slash")
                     .foregroundStyle(.white)
                 
-                Text("Offline Mode Enabled")
+                Text("offline.mode.enabled".localized)
                     .font(.brand(.semibold, size: 14))
                     .foregroundStyle(.white)
             }
 
-            Text("Some data may be outdated or images may not load correctly.")
+            Text("offline.mode.enabled.description".localized)
                 .font(.brand(.light, size: 12))
                 .foregroundStyle(.white)
         }

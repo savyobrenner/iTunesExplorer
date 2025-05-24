@@ -67,6 +67,14 @@ struct HomeView<ViewModel: HomeViewModelProtocol>: View {
             viewModel.loadData()
         }
         .showAlert(alert: $viewModel.currentAlert)
+        .alert(item: $viewModel.systemAlert) { alert in
+            Alert(
+                title: Text(alert.title),
+                message: Text(alert.message),
+                primaryButton: alert.primaryButton,
+                secondaryButton: alert.secondaryButton
+            )
+        }
     }
 }
 

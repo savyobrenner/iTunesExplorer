@@ -11,6 +11,8 @@ protocol HomeViewModelProtocol: BaseViewModelProtocol {
     var title: String { get }
     var albums: [AlbumItemResponse] { get }
     var isOnline: Bool { get }
+    var systemAlert: SystemAlertModel? { get set }
+    var albumsQuantity: Int { get set }
     
     func loadData()
     func openDetails(for album: AlbumItemResponse)
