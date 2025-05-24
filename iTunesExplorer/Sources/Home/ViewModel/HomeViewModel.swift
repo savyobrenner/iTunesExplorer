@@ -15,9 +15,13 @@ class HomeViewModel: BaseViewModel<HomeCoordinator>, HomeViewModelProtocol {
     private var albumsLimits = 100
     
     private let homeServices: HomeServicesProtocol
+    private let analytics: AnalyticsCollectible
     
-    init(coordinator: HomeCoordinator?, homeServices: HomeServicesProtocol) {
+    init(coordinator: HomeCoordinator?, homeServices: HomeServicesProtocol, analytics: AnalyticsCollectible) {
         self.homeServices = homeServices
+        self.analytics = analytics
+        
+        analytics.collect(event: AnalyticsEvents.homeScreen)
         
         super.init(coordinator: coordinator)
     }
@@ -29,7 +33,7 @@ class HomeViewModel: BaseViewModel<HomeCoordinator>, HomeViewModelProtocol {
             defer { self.isLoading = false }
             
             do {
-                let country = LocalizationHelper.from(deviceLocale: .current).iTunesCountryCode
+                let country = "br"//LocalizationHelper.from(deviceLocale: .current).iTunesCountryCode
                 let response = try await self.homeServices.fetchTopAlbums(limit: self.albumsLimits, country: country)
                 
                 self.albums = response.albums
@@ -40,6 +44,8 @@ class HomeViewModel: BaseViewModel<HomeCoordinator>, HomeViewModelProtocol {
     }
     
     func openDetails(for album: AlbumItemResponse) {
+        analytics.collect(event: AnalyticsEvents.homeScreenSelectAlbum(name: album.name.label))
+        
         coordinator?.navigate(to: .details(album: album))
     }
 }

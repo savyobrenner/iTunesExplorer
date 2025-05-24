@@ -30,6 +30,10 @@ extension Container {
         }.singleton
     }
     
+    var analytics: Factory<AnalyticsCollectible> {
+        self { SimulatedAnalytics() }.singleton
+    }
+    
     var homeServices: Factory<HomeServicesProtocol> {
         self { HomeServices(network: self.networkService()) }
     }

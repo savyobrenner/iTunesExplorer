@@ -11,9 +11,18 @@ class AlbumDetailsViewModel: BaseViewModel<AlbumDetailsCoordinator>, AlbumDetail
 
     let album: AlbumItemResponse
     
-    init(coordinator: AlbumDetailsCoordinator?, album: AlbumItemResponse) {
+    private let analytics: AnalyticsCollectible
+    
+    init(coordinator: AlbumDetailsCoordinator?, album: AlbumItemResponse, analytics: AnalyticsCollectible) {
         self.album = album
+        self.analytics = analytics
         
         super.init(coordinator: coordinator)
+    }
+    
+    override func dismiss(animated: Bool = true) {
+        analytics.collect(event: AnalyticsEvents.albumDetailsScreenBackButton)
+        
+        super.dismiss(animated: animated)
     }
 }

@@ -20,7 +20,7 @@ class AlbumDetailsCoordinator: BaseCoordinator {
     
     override func start() {
         let viewcontroller = AlbumDetailsView(
-            viewModel: AlbumDetailsViewModel(coordinator: self, album: album)
+            viewModel: AlbumDetailsViewModel(coordinator: self, album: album, analytics: Container.shared.analytics())
         )
             .insideHostingController()
         

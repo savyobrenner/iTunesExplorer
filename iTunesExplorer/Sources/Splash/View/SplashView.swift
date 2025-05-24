@@ -32,7 +32,7 @@ import Factory
 #Preview {
     SplashView(viewModel: SplashViewModel(
         coordinator: SplashCoordinator(navigationController: .init()),
-        serviceLocator: Container.shared.serviceLocator()
+        analytics: Container.shared.analytics()
     ))
 }
 #endif

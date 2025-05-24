@@ -12,6 +12,7 @@ extension Color {
         static let clear = Color.clear
         static let white = Color.white
         static let black = Color.black
+        static let red = Color.red
         static let gray = Color.gray
         
         ///#dde048

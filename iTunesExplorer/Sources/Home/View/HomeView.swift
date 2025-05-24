@@ -66,9 +66,10 @@ struct HomeView<ViewModel: HomeViewModelProtocol>: View {
 import Factory
 
 #Preview {
-HomeView(viewModel: HomeViewModel(
-    coordinator: HomeCoordinator(navigationController: .init()),
-    homeServices: Container.shared.homeServices()
+    HomeView(viewModel: HomeViewModel(
+        coordinator: HomeCoordinator(navigationController: .init()),
+        homeServices: Container.shared.homeServices(),
+        analytics: Container.shared.analytics()
     ))
 }
 #endif

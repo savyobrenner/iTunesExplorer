@@ -77,7 +77,9 @@ struct AlbumDetailsView<ViewModel: AlbumDetailsViewModelProtocol>: View {
                 Spacer()
                 
                 if let artistURL = viewModel.album.artist.attributes?.href {
-                    Link(destination: artistURL) {
+                    Button {
+                        UIApplication.shared.open(artistURL, options: [:], completionHandler: nil)
+                    } label: {
                         HStack {
                             Image(systemName: "music.note")
                             
@@ -87,7 +89,7 @@ struct AlbumDetailsView<ViewModel: AlbumDetailsViewModelProtocol>: View {
                         .foregroundStyle(.white)
                         .padding(.horizontal, 16)
                         .padding(.vertical, 10)
-                        .background(Color.red)
+                        .background(Color.Brand.red)
                         .clipShape(RoundedRectangle(cornerRadius: 12))
                     }
                 }
@@ -125,11 +127,13 @@ import Factory
     )
     
     
-    AlbumDetailsView(viewModel: AlbumDetailsViewModel(
-        coordinator: AlbumDetailsCoordinator(
-            album: mockAlbum,
-            navigationController: .init()
-        ), album: mockAlbum
-    ))
+    AlbumDetailsView(
+        viewModel: AlbumDetailsViewModel(
+            coordinator: AlbumDetailsCoordinator(
+                album: mockAlbum,
+                navigationController: .init()
+            ), album: mockAlbum,
+            analytics: Container.shared.analytics()
+        ))
 }
 #endif

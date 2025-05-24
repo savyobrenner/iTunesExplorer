@@ -9,19 +9,17 @@ import SwiftUI
 
 class SplashViewModel: BaseViewModel<SplashCoordinator>, SplashViewModelProtocol {
     
-    private var user: String? {
-        serviceLocator.userSettings.user
-    }
+    private let analytics: AnalyticsCollectible
     
-    let serviceLocator: ServiceLocatorProtocol
-    
-    init(coordinator: SplashCoordinator?, serviceLocator: ServiceLocatorProtocol) {
-        self.serviceLocator = serviceLocator
+    init(coordinator: SplashCoordinator?, analytics: AnalyticsCollectible) {
+        self.analytics = analytics
         
         super.init(coordinator: coordinator)
     }
     
     func load() {
+        analytics.collect(event: AnalyticsEvents.appLaunch)
+        
         coordinator?.navigate(to: .home)
     }
 }
