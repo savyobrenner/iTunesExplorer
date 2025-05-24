@@ -91,10 +91,10 @@ private extension HomeViewModel {
                 message: "mobile.data.alert.message".localized,
                 primaryButton: .default(Text("mobile.data.alert.reduce".localized)) {
                     self.albumsQuantity = 50
-                    self.loadData()
+                    self.fetchData()
                 },
                 secondaryButton: .cancel(Text("mobile.data.alert.keep".localized)) {
-                    self.loadData()
+                    self.fetchData()
                 }
             )
             
