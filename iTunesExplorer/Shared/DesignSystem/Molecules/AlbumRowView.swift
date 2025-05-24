@@ -45,7 +45,7 @@ struct AlbumRowView: View {
         .background(
             RoundedRectangle(cornerRadius: 16)
                 .fill(Color.white)
-                .shadow(color: .black.opacity(0.05), radius: 4, x: 0, y: 2)
+                .shadow(color: Color.Brand.black.opacity(0.05), radius: 4, x: 0, y: 2)
         )
     }
 }

@@ -22,12 +22,18 @@ struct HomeView<ViewModel: HomeViewModelProtocol>: View {
             if viewModel.isLoading {
                 LoadingView()
             } else {
-                VStack(alignment: .leading, spacing: 16) {
-                    Text("Top Albums")
-                        .font(.brand(.bold, size: 32))
-                        .foregroundStyle(Color.Brand.black)
-                        .padding(.horizontal)
-                    
+                VStack(spacing: 0) {
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Top Albums")
+                            .font(.brand(.bold, size: 32))
+                            .foregroundStyle(Color.Brand.black)
+                    }
+                    .padding()
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .background(Color.Brand.white)
+                    .shadow(color: Color.Brand.black.opacity(0.1), radius: 8, x: 0, y: 4)
+                    .zIndex(1)
+
                     ScrollView {
                         LazyVStack(spacing: 12) {
                             ForEach(viewModel.albums, id: \.id.label) { album in
@@ -40,8 +46,10 @@ struct HomeView<ViewModel: HomeViewModelProtocol>: View {
                                 .padding(.horizontal)
                             }
                         }
-                        .padding(.vertical)
+                        .padding(.top, 16)
+                        .padding(.bottom, 32)
                     }
+                    .zIndex(0)
                 }
             }
         }
