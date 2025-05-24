@@ -14,7 +14,7 @@ enum AppEnvironment {
     }
     
     static var baseURL: String {
-        return "https://google.com.br"
+        return "https://itunes.apple.com"
     }
     
     static var isDebug: Bool {
