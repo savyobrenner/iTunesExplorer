@@ -13,11 +13,11 @@ struct FloatingAlertView: View {
     var body: some View {
         HStack {
             alert.type.icon
-                .foregroundStyle(Color.Brand.black)
+                .foregroundStyle(Color.Brand.white)
             
             Text(alert.title)
-                .font(.brand(.regular, size: 14))
-                .foregroundStyle(Color.Brand.black)
+                .font(.brand(.bold, size: 14))
+                .foregroundStyle(Color.Brand.white)
             
             Spacer()
         }

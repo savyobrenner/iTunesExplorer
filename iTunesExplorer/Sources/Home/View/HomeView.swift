@@ -25,7 +25,7 @@ struct HomeView<ViewModel: HomeViewModelProtocol>: View {
                 VStack(spacing: 0) {
                     VStack(alignment: .leading, spacing: 8) {
                         Text(viewModel.title)
-                            .font(.brand(.bold, size: 26))
+                            .font(.brand(.bold, size: 24))
                             .foregroundStyle(Color.Brand.black)
                     }
                     .padding()

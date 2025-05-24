@@ -13,7 +13,7 @@ struct AlbumItemResponse: Decodable {
     let itemCount: LabelContainer
     let price: Price
     let contentType: ContentTypeWrapper
-    let rights: LabelContainer?
+    let rights: LabelContainer
     let title: LabelContainer
     let link: Link
     let id: ID
