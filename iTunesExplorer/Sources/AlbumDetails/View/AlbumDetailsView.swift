@@ -42,7 +42,7 @@ struct AlbumDetailsView<ViewModel: AlbumDetailsViewModelProtocol>: View {
                             
                             Text("•")
                             
-                            Text("\(viewModel.album.itemCount.label) tracks")
+                            Text(viewModel.trackCount)
                             
                             Text("•")
                             
@@ -51,7 +51,7 @@ struct AlbumDetailsView<ViewModel: AlbumDetailsViewModelProtocol>: View {
                         .font(.brand(.light, size: 16))
                         .foregroundStyle(Color.Brand.gray)
                         
-                        Text("Price: \(viewModel.album.price.label)")
+                        Text(viewModel.price)
                             .font(.brand(.semibold, size: 16))
                             .foregroundStyle(Color.Brand.primaryThirdPalette)
                     }
@@ -83,7 +83,7 @@ struct AlbumDetailsView<ViewModel: AlbumDetailsViewModelProtocol>: View {
                         HStack {
                             Image(systemName: "music.note")
                             
-                            Text("Listen on Apple Music")
+                            Text("listen_on_apple_music".localized)
                                 .font(.brand(.bold, size: 24))
                         }
                         .foregroundStyle(.white)
@@ -91,6 +91,7 @@ struct AlbumDetailsView<ViewModel: AlbumDetailsViewModelProtocol>: View {
                         .padding(.vertical, 10)
                         .background(Color.Brand.red)
                         .clipShape(RoundedRectangle(cornerRadius: 12))
+                        .frame(height: 40)
                     }
                 }
             }

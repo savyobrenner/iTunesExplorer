@@ -15,6 +15,17 @@ enum LocalizationHelper: String, CaseIterable {
     var iTunesCountryCode: String {
         return rawValue
     }
+    
+    var countryName: String {
+        switch self {
+        case .unitedStates:
+            return "United States"
+        case .portugal:
+            return "Portugal"
+        case .spain:
+            return "España"
+        }
+    }
 
     static func from(deviceLocale: Locale) -> LocalizationHelper {
         let regionCode = deviceLocale.region?.identifier.lowercased() ?? "us"

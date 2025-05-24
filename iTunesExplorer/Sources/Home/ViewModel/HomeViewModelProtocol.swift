@@ -8,6 +8,7 @@
 import Foundation
 
 protocol HomeViewModelProtocol: BaseViewModelProtocol {
+    var title: String { get }
     var albums: [AlbumItemResponse] { get }
     
     func loadData()

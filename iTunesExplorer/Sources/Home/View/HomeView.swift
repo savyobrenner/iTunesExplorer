@@ -24,8 +24,8 @@ struct HomeView<ViewModel: HomeViewModelProtocol>: View {
             } else {
                 VStack(spacing: 0) {
                     VStack(alignment: .leading, spacing: 8) {
-                        Text("Top Albums")
-                            .font(.brand(.bold, size: 32))
+                        Text(viewModel.title)
+                            .font(.brand(.bold, size: 26))
                             .foregroundStyle(Color.Brand.black)
                     }
                     .padding()

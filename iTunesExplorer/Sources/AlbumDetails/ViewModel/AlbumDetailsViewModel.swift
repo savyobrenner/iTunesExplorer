@@ -11,6 +11,16 @@ class AlbumDetailsViewModel: BaseViewModel<AlbumDetailsCoordinator>, AlbumDetail
 
     let album: AlbumItemResponse
     
+    var price: String {
+        "price".localized
+            .replacingOccurrences(of: "%@", with: "\(album.price.label)")
+    }
+    
+    var trackCount: String {
+        "tracks_count".localized
+            .replacingOccurrences(of: "%@", with: "\(album.itemCount.label)")
+    }
+    
     private let analytics: AnalyticsCollectible
     
     init(coordinator: AlbumDetailsCoordinator?, album: AlbumItemResponse, analytics: AnalyticsCollectible) {

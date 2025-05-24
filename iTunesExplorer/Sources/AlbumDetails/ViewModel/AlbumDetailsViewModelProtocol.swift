@@ -9,4 +9,6 @@ import Foundation
 
 protocol AlbumDetailsViewModelProtocol: BaseViewModelProtocol {
     var album: AlbumItemResponse { get }
+    var price: String { get }
+    var trackCount: String { get }
 }

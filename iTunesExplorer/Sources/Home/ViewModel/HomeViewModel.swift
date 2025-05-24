@@ -12,7 +12,17 @@ class HomeViewModel: BaseViewModel<HomeCoordinator>, HomeViewModelProtocol {
     @Published
     var albums: [AlbumItemResponse] = []
     
-    private var albumsLimits = 100
+    var title: String {
+        "top.albums".localized
+            .replacingOccurrences(of: "%d", with: "\(albumsQuantity)")
+            .replacingOccurrences(of: "%@", with: userLocale.countryName)
+    }
+    
+    private var userLocale: LocalizationHelper {
+        LocalizationHelper.from(deviceLocale: .current)
+    }
+    
+    private var albumsQuantity = 100
     
     private let homeServices: HomeServicesProtocol
     private let analytics: AnalyticsCollectible
@@ -33,8 +43,9 @@ class HomeViewModel: BaseViewModel<HomeCoordinator>, HomeViewModelProtocol {
             defer { self.isLoading = false }
             
             do {
-                let country = "br"//LocalizationHelper.from(deviceLocale: .current).iTunesCountryCode
-                let response = try await self.homeServices.fetchTopAlbums(limit: self.albumsLimits, country: country)
+                let response = try await self.homeServices.fetchTopAlbums(
+                    limit: self.albumsQuantity, country: self.userLocale.iTunesCountryCode
+                )
                 
                 self.albums = response.albums
             } catch {

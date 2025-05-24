@@ -17,23 +17,22 @@ struct AppError: Error, Codable, Equatable {
     }
     
     static var unknownError: AppError {
-        return AppError(statusCode: 500, message: "Unknown error")
+        return AppError(statusCode: 500, message: "error.unknown".localized)
     }
     
     static var networkError: AppError {
-        return AppError(statusCode: -1, message: "Connection error")
+        return AppError(statusCode: -1, message: "error.network".localized)
     }
     
     static var timeoutError: AppError {
-        return AppError(statusCode: -2, message: "Request timed out")
+        return AppError(statusCode: -2, message: "error.timeout".localized)
     }
     
     static var serverError: AppError {
-        return AppError(statusCode: 500, message: "Internal server error")
+        return AppError(statusCode: 500, message: "error.server".localized)
     }
     
     static var invalidResponse: AppError {
-        return AppError(statusCode: AppConstants.statusCodeForParseError, message: "Internal server error")
+        return AppError(statusCode: AppConstants.statusCodeForParseError, message: "error.invalid_response".localized)
     }
-    
 }
