@@ -17,7 +17,7 @@ struct Feed: Decodable {
 
 struct Album: Decodable {
     let name: LabelContainer
-    let images: [Image]
+    let images: [ImageResponse]
     let itemCount: LabelContainer
     let price: Price
     let contentType: ContentTypeWrapper
@@ -49,7 +49,7 @@ struct LabelContainer: Decodable {
     let label: String
 }
 
-struct Image: Decodable {
+struct ImageResponse: Decodable {
     let label: String
     let attributes: ImageAttributes
 }

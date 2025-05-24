@@ -19,5 +19,13 @@
 			</array>
 		</dict>
 	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>proxima-nova-black.otf</string>
+		<string>proxima-nova-bold.otf</string>
+		<string>proxima-nova-light.otf</string>
+		<string>proxima-nova-semibold.otf</string>
+		<string>proxima-nova.otf</string>
+	</array>
 </dict>
 </plist>
