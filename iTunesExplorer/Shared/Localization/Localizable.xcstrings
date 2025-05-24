@@ -168,7 +168,7 @@
         }
       }
     },
-    "listen_on_apple_music" : {
+    "listen.on.apple.music" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -193,6 +193,67 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ouvir no Apple Music"
+          }
+        }
+      }
+    },
+    "Offline Mode Enabled" : {
+
+    },
+    "offline.message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No internet. You're viewing cached data."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sin conexión. Estás viendo datos en caché."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sem internet. Você está vendo dados em cache."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sem internet. Você está vendo dados em cache."
+          }
+        }
+      }
+    },
+    "online.message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connection restored. You're back online."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conexión restablecida. Ya estás en línea."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conexão restaurada. Você está online novamente."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conexão restaurada. Você está online novamente."
           }
         }
       }
@@ -225,6 +286,9 @@
           }
         }
       }
+    },
+    "Some data may be outdated or images may not load correctly." : {
+
     },
     "top.albums" : {
       "extractionState" : "manual",

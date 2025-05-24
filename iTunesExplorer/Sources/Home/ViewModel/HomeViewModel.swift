@@ -10,7 +10,18 @@ import SwiftUI
 class HomeViewModel: BaseViewModel<HomeCoordinator>, HomeViewModelProtocol {
     
     @Published
-    var albums: [AlbumItemResponse] = []
+    private(set) var albums: [AlbumItemResponse] = []
+    
+    @Published
+    private(set) var isOnline = true {
+        didSet {
+            if isOnline {
+                currentAlert = .init(type: .success, title: "online.message".localized, position: .bottom)
+            } else {
+                currentAlert = .init(type: .warning, title: "offline.message".localized, position: .bottom)
+            }
+        }
+    }
     
     var title: String {
         "top.albums".localized
@@ -26,18 +37,31 @@ class HomeViewModel: BaseViewModel<HomeCoordinator>, HomeViewModelProtocol {
     
     private let homeRepository: HomeRepositoryProtocol
     private let analytics: AnalyticsCollectible
+    private var reachability: NetworkReachabilityProtocol
     
-    init(coordinator: HomeCoordinator?, homeRepository: HomeRepositoryProtocol, analytics: AnalyticsCollectible) {
+    init(
+        coordinator: HomeCoordinator?,
+        homeRepository: HomeRepositoryProtocol,
+        analytics: AnalyticsCollectible,
+        reachability: NetworkReachabilityProtocol
+    ) {
         self.homeRepository = homeRepository
         self.analytics = analytics
+        self.reachability = reachability
         
         analytics.collect(event: AnalyticsEvents.homeScreen)
         
         super.init(coordinator: coordinator)
+        
+        startNetworkMonitoring()
     }
     
     func loadData() {
         isLoading = true
+        
+        if !isOnline {
+            isOnline = reachability.isConnected
+        }
         
         coordinator?.autoCancellingTask { @MainActor in
             defer { self.isLoading = false }
@@ -62,5 +86,13 @@ class HomeViewModel: BaseViewModel<HomeCoordinator>, HomeViewModelProtocol {
         HapticFeedbackGenerator.selection()
         
         coordinator?.navigate(to: .details(album: album))
+    }
+    
+    private func startNetworkMonitoring() {
+        self.reachability.onStatusChange = { [weak self] status in
+            DispatchQueue.main.async {
+                self?.isOnline = status
+            }
+        }
     }
 }

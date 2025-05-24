@@ -35,6 +35,11 @@ struct HomeView<ViewModel: HomeViewModelProtocol>: View {
                     .zIndex(1)
 
                     ScrollView {
+                        if !viewModel.isOnline {
+                            OfflineModeBanner()
+                                .padding(.top, 10)
+                        }
+                        
                         LazyVStack(spacing: 12) {
                             ForEach(viewModel.albums, id: \.name.label) { album in
                                 AlbumRowView(
@@ -72,7 +77,8 @@ import Factory
     HomeView(viewModel: HomeViewModel(
         coordinator: HomeCoordinator(navigationController: .init()),
         homeRepository: Container.shared.homeRepository(),
-        analytics: Container.shared.analytics()
+        analytics: Container.shared.analytics(),
+        reachability: Container.shared.networkMonitor()
     ))
 }
 #endif

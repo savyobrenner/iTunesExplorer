@@ -6,12 +6,15 @@
 //
 
 import Network
+import SwiftUI
 
 final class NetworkMonitor: NetworkReachabilityProtocol {
     private let monitor = NWPathMonitor()
     private let queue = DispatchQueue(label: "NetworkMonitor")
-
-    private(set) var isConnected: Bool = true
+    
+    @Published
+    private(set) var isConnected = true
+    
     var onStatusChange: ((Bool) -> Void)?
 
     init() {
@@ -25,6 +28,7 @@ final class NetworkMonitor: NetworkReachabilityProtocol {
                 }
             }
         }
+        
         monitor.start(queue: queue)
     }
 }

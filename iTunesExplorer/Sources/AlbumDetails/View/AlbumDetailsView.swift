@@ -76,14 +76,14 @@ struct AlbumDetailsView<ViewModel: AlbumDetailsViewModelProtocol>: View {
             VStack(alignment: .center) {
                 Spacer()
                 
-                if let artistURL = viewModel.album.artist.attributes?.href {
+                if let artistURL = viewModel.album.artist.attributes?.href, viewModel.isOnline {
                     Button {
                         UIApplication.shared.open(artistURL, options: [:], completionHandler: nil)
                     } label: {
                         HStack {
                             Image(systemName: "music.note")
                             
-                            Text("listen_on_apple_music".localized)
+                            Text("listen.on.apple.music".localized)
                                 .font(.brand(.bold, size: 24))
                         }
                         .foregroundStyle(.white)
@@ -93,6 +93,10 @@ struct AlbumDetailsView<ViewModel: AlbumDetailsViewModelProtocol>: View {
                         .clipShape(RoundedRectangle(cornerRadius: 12))
                         .frame(height: 40)
                     }
+                }
+                
+                if !viewModel.isOnline {
+                    OfflineModeBanner()
                 }
             }
             .frame(maxWidth: .infinity)
@@ -128,7 +132,8 @@ import Factory
                 album: mockAlbum,
                 navigationController: .init()
             ), album: mockAlbum,
-            analytics: Container.shared.analytics()
+            analytics: Container.shared.analytics(),
+            reachability: Container.shared.networkMonitor()
         ))
 }
 #endif

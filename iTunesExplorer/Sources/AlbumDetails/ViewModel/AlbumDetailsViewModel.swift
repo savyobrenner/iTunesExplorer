@@ -9,6 +9,9 @@ import SwiftUI
 
 class AlbumDetailsViewModel: BaseViewModel<AlbumDetailsCoordinator>, AlbumDetailsViewModelProtocol {
 
+    @Published
+    private(set) var isOnline = true
+        
     let album: AlbumItemResponse
     
     var price: String {
@@ -22,12 +25,24 @@ class AlbumDetailsViewModel: BaseViewModel<AlbumDetailsCoordinator>, AlbumDetail
     }
     
     private let analytics: AnalyticsCollectible
+    private var reachability: NetworkReachabilityProtocol
     
-    init(coordinator: AlbumDetailsCoordinator?, album: AlbumItemResponse, analytics: AnalyticsCollectible) {
+    init(
+        coordinator: AlbumDetailsCoordinator?,
+        album: AlbumItemResponse,
+        analytics: AnalyticsCollectible,
+        reachability: NetworkReachabilityProtocol
+    ) {
         self.album = album
         self.analytics = analytics
+        self.reachability = reachability
+        
+        analytics.collect(event: AnalyticsEvents.albumDetailsScreen)
         
         super.init(coordinator: coordinator)
+        
+        isOnline = reachability.isConnected
+        startNetworkMonitoring()
     }
     
     override func dismiss(animated: Bool = true) {
@@ -36,5 +51,13 @@ class AlbumDetailsViewModel: BaseViewModel<AlbumDetailsCoordinator>, AlbumDetail
         HapticFeedbackGenerator.selection()
         
         super.dismiss(animated: animated)
+    }
+    
+    private func startNetworkMonitoring() {
+        self.reachability.onStatusChange = { [weak self] status in
+            DispatchQueue.main.async {
+                self?.isOnline = status
+            }
+        }
     }
 }

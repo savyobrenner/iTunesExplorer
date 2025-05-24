@@ -21,7 +21,7 @@ extension Container {
     }
     
     var networkMonitor: Factory<NetworkReachabilityProtocol> {
-        self { NetworkMonitor() }.shared
+        self { NetworkMonitor() }.singleton
     }
     
     var homeServices: Factory<HomeServicesProtocol> {

@@ -15,7 +15,8 @@ class HomeCoordinator: BaseCoordinator {
             viewModel: HomeViewModel(
                 coordinator: self,
                 homeRepository: Container.shared.homeRepository(),
-                analytics: Container.shared.analytics()
+                analytics: Container.shared.analytics(),
+                reachability: Container.shared.networkMonitor()
             )
         )
             .insideHostingController()
