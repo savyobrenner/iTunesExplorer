@@ -38,6 +38,7 @@ struct HomeView<ViewModel: HomeViewModelProtocol>: View {
                         if !viewModel.isOnline {
                             OfflineModeBanner()
                                 .padding(.top, 10)
+                                .padding(.horizontal, 16)
                         }
                         
                         LazyVStack(spacing: 12) {

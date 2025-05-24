@@ -30,8 +30,28 @@ enum LocalizationHelper: String, CaseIterable {
         }
     }
 
-    static func from(deviceLocale: Locale) -> LocalizationHelper {
-        let regionCode = deviceLocale.region?.identifier.lowercased() ?? "us"
-        return LocalizationHelper(rawValue: regionCode) ?? .unitedStates
+    static func from(deviceLocale: Locale = .current) -> LocalizationHelper {
+        let appLanguage = Bundle.main.preferredLocalizations.first?.lowercased() ?? "en"
+
+        switch appLanguage {
+        case "pt-br":
+            return .brazil
+        case "pt-pt":
+            return .portugal
+        case "es":
+            return .spain
+        case "en":
+            return .unitedStates
+        default:
+            break
+        }
+
+        // Fallback to device region
+        if let regionCode = deviceLocale.region?.identifier.lowercased(),
+           let match = LocalizationHelper(rawValue: regionCode) {
+            return match
+        }
+
+        return .unitedStates
     }
 }

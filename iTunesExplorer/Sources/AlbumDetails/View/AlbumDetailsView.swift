@@ -97,6 +97,7 @@ struct AlbumDetailsView<ViewModel: AlbumDetailsViewModelProtocol>: View {
                 
                 if !viewModel.isOnline {
                     OfflineModeBanner()
+                        .padding(.horizontal, 16)
                 }
             }
             .frame(maxWidth: .infinity)
