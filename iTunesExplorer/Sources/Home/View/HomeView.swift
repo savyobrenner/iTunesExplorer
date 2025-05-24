@@ -58,7 +58,10 @@ struct HomeView<ViewModel: HomeViewModelProtocol>: View {
                 }
             }
         }
-        .onAppear { viewModel.loadData() }
+        .onAppear {
+            viewModel.loadData()
+        }
+        .showAlert(alert: $viewModel.currentAlert)
     }
 }
 

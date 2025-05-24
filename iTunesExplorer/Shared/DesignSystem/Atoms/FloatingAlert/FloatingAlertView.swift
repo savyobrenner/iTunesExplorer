@@ -16,7 +16,7 @@ struct FloatingAlertView: View {
                 .foregroundStyle(Color.Brand.black)
             
             Text(alert.title)
-                .font(.brand(.semibold, size: 14))
+                .font(.brand(.regular, size: 14))
                 .foregroundStyle(Color.Brand.black)
             
             Spacer()

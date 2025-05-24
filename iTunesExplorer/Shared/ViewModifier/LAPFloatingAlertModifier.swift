@@ -72,7 +72,7 @@ struct FloatingAlertModifier: ViewModifier {
 }
 
 extension View {
-    func showLAPAlert(alert: Binding<FloatingAlertModel?>) -> some View {
+    func showAlert(alert: Binding<FloatingAlertModel?>) -> some View {
         self.modifier(FloatingAlertModifier(alert: alert))
     }
 }

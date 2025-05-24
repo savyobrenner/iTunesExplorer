@@ -28,7 +28,7 @@ final class NetworkClient: NetworkProtocol {
             }
             
             guard (200...299).contains(httpResponse.statusCode) else {
-                throw AppError.statusCode(httpResponse.statusCode)
+                throw AppError.networkError
             }
 
             do {
@@ -37,25 +37,23 @@ final class NetworkClient: NetworkProtocol {
             } catch {
                 throw AppError.invalidResponse
             }
-        } catch let urlError as URLError {
-            throw AppError.urlError(urlError)
         } catch let appError as AppError {
             throw appError
         } catch {
-            throw AppError.unknown
+            throw AppError.unknownError
         }
     }
     
     private func prepareRequest(for endpoint: Endpoint) throws -> URLRequest {
         guard let url = endpoint.url else {
-            throw AppError.invalidURL
+            throw AppError.unknownError
         }
         
         var components = URLComponents(url: url, resolvingAgainstBaseURL: false)
         components?.queryItems = endpoint.queryParameters.isEmpty ? nil : endpoint.queryParameters
         
         guard let finalURL = components?.url else {
-            throw AppError.invalidURL
+            throw AppError.unknownError
         }
         
         var request = URLRequest(url: finalURL)

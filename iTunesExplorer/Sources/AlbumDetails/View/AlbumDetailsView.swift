@@ -96,6 +96,7 @@ struct AlbumDetailsView<ViewModel: AlbumDetailsViewModelProtocol>: View {
             }
             .frame(maxWidth: .infinity)
         }
+        .showAlert(alert: $viewModel.currentAlert)
     }
 }
 
