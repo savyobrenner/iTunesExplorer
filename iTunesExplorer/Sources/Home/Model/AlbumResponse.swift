@@ -23,4 +23,8 @@ struct AlbumsResponse: Decodable {
         let feedContainer = try container.nestedContainer(keyedBy: FeedKeys.self, forKey: .feed)
         albums = try feedContainer.decode([AlbumItemResponse].self, forKey: .albums)
     }
+    
+    init(albums: [AlbumItemResponse]) {
+        self.albums = albums
+    }
 }
