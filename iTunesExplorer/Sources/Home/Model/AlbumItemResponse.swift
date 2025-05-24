@@ -7,16 +7,12 @@
 
 import Foundation
 
-struct AlbumItemResponse: Decodable {
+struct AlbumItemResponse: Codable {
     let name: LabelContainer
     let images: [ImageResponse]
     let itemCount: LabelContainer
     let price: Price
-    let contentType: ContentTypeWrapper
-    let rights: LabelContainer?
     let title: LabelContainer
-    let link: Link
-    let id: ID
     let artist: Artist
     let category: Category
     let releaseDate: ReleaseDate
@@ -26,11 +22,7 @@ struct AlbumItemResponse: Decodable {
         case images = "im:image"
         case itemCount = "im:itemCount"
         case price = "im:price"
-        case contentType = "im:contentType"
-        case rights
         case title
-        case link
-        case id
         case artist = "im:artist"
         case category
         case releaseDate = "im:releaseDate"
@@ -39,30 +31,30 @@ struct AlbumItemResponse: Decodable {
 
 // MARK: - Nested Models (Helper Structs)
 extension AlbumItemResponse {
-    struct LabelContainer: Decodable {
+    struct LabelContainer: Codable {
         let label: String
     }
     
-    struct ImageResponse: Decodable {
+    struct ImageResponse: Codable {
         let label: URL
         let attributes: ImageAttributes
     }
     
-    struct ImageAttributes: Decodable {
+    struct ImageAttributes: Codable {
         let height: String
     }
     
-    struct Price: Decodable {
+    struct Price: Codable {
         let label: String
         let attributes: PriceAttributes
     }
     
-    struct PriceAttributes: Decodable {
+    struct PriceAttributes: Codable {
         let amount: String
         let currency: String
     }
     
-    struct ContentTypeWrapper: Decodable {
+    struct ContentTypeWrapper: Codable {
         let contentType: ContentType
         let attributes: ContentTypeAttributes
         
@@ -72,31 +64,31 @@ extension AlbumItemResponse {
         }
     }
     
-    struct ContentType: Decodable {
+    struct ContentType: Codable {
         let attributes: ContentTypeAttributes
     }
     
-    struct ContentTypeAttributes: Decodable {
+    struct ContentTypeAttributes: Codable {
         let term: String
         let label: String
     }
     
-    struct Link: Decodable {
+    struct Link: Codable {
         let attributes: LinkAttributes
     }
     
-    struct LinkAttributes: Decodable {
+    struct LinkAttributes: Codable {
         let rel: String
         let type: String
         let href: String
     }
     
-    struct ID: Decodable {
+    struct ID: Codable {
         let label: String
         let attributes: IDAttributes
     }
     
-    struct IDAttributes: Decodable {
+    struct IDAttributes: Codable {
         let imID: String
         
         private enum CodingKeys: String, CodingKey {
@@ -104,20 +96,20 @@ extension AlbumItemResponse {
         }
     }
     
-    struct Artist: Decodable {
+    struct Artist: Codable {
         let label: String
         let attributes: ArtistAttributes?
     }
     
-    struct ArtistAttributes: Decodable {
+    struct ArtistAttributes: Codable {
         let href: URL
     }
     
-    struct Category: Decodable {
+    struct Category: Codable {
         let attributes: CategoryAttributes
     }
     
-    struct CategoryAttributes: Decodable {
+    struct CategoryAttributes: Codable {
         let id: String
         let term: String
         let scheme: String
@@ -129,7 +121,7 @@ extension AlbumItemResponse {
         }
     }
     
-    struct ReleaseDate: Decodable {
+    struct ReleaseDate: Codable {
         let label: String
         let attributes: LabelContainer
     }

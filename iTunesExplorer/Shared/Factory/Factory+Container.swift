@@ -16,8 +16,26 @@ extension Container {
         self { SimulatedAnalytics() }.singleton
     }
     
+    var offlineCacheManager: Factory<OfflineCacheManagerProtocol> {
+        self { OfflineCacheManager() }
+    }
+    
+    var networkMonitor: Factory<NetworkReachabilityProtocol> {
+        self { NetworkMonitor() }.shared
+    }
+    
     var homeServices: Factory<HomeServicesProtocol> {
         self { HomeServices(network: self.networkService()) }
+    }
+    
+    var homeRepository: Factory<HomeRepositoryProtocol> {
+        self {
+            HomeRepository(
+                service: self.homeServices(),
+                cache: self.offlineCacheManager(),
+                reachability: self.networkMonitor()
+            )
+        }
     }
 }
 

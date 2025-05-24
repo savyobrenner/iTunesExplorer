@@ -14,7 +14,7 @@ class HomeCoordinator: BaseCoordinator {
         let viewcontroller = HomeView(
             viewModel: HomeViewModel(
                 coordinator: self,
-                homeServices: Container.shared.homeServices(),
+                homeRepository: Container.shared.homeRepository(),
                 analytics: Container.shared.analytics()
             )
         )

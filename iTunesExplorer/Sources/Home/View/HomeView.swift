@@ -36,7 +36,7 @@ struct HomeView<ViewModel: HomeViewModelProtocol>: View {
 
                     ScrollView {
                         LazyVStack(spacing: 12) {
-                            ForEach(viewModel.albums, id: \.id.label) { album in
+                            ForEach(viewModel.albums, id: \.name.label) { album in
                                 AlbumRowView(
                                     imageURL: album.imageURL(for: .medium),
                                     albumName: album.name.label,
@@ -71,7 +71,7 @@ import Factory
 #Preview {
     HomeView(viewModel: HomeViewModel(
         coordinator: HomeCoordinator(navigationController: .init()),
-        homeServices: Container.shared.homeServices(),
+        homeRepository: Container.shared.homeRepository(),
         analytics: Container.shared.analytics()
     ))
 }

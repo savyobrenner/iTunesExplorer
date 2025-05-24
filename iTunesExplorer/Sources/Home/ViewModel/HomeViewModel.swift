@@ -24,11 +24,11 @@ class HomeViewModel: BaseViewModel<HomeCoordinator>, HomeViewModelProtocol {
     
     private var albumsQuantity = 100
     
-    private let homeServices: HomeServicesProtocol
+    private let homeRepository: HomeRepositoryProtocol
     private let analytics: AnalyticsCollectible
     
-    init(coordinator: HomeCoordinator?, homeServices: HomeServicesProtocol, analytics: AnalyticsCollectible) {
-        self.homeServices = homeServices
+    init(coordinator: HomeCoordinator?, homeRepository: HomeRepositoryProtocol, analytics: AnalyticsCollectible) {
+        self.homeRepository = homeRepository
         self.analytics = analytics
         
         analytics.collect(event: AnalyticsEvents.homeScreen)
@@ -43,11 +43,11 @@ class HomeViewModel: BaseViewModel<HomeCoordinator>, HomeViewModelProtocol {
             defer { self.isLoading = false }
             
             do {
-                let response = try await self.homeServices.fetchTopAlbums(
+                let response = try await self.homeRepository.fetchTopAlbums(
                     limit: self.albumsQuantity, country: self.userLocale.iTunesCountryCode
                 )
                 
-                self.albums = response.albums
+                self.albums = response
             } catch {
                 HapticFeedbackGenerator.error()
                 

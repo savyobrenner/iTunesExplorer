@@ -115,14 +115,7 @@ import Factory
         ],
         itemCount: .init(label: "10"),
         price: .init(label: "R$ 39,90", attributes: .init(amount: "39.90", currency: "BRL")),
-        contentType: .init(
-            contentType: .init(attributes: .init(term: "Album", label: "Album")),
-            attributes: .init(term: "Album", label: "Album")
-        ),
-        rights: .init(label: "℗ 1973 Pink Floyd Records"),
         title: .init(label: "The Dark Side of the Moon - Pink Floyd"),
-        link: .init(attributes: .init(rel: "alternate", type: "text/html", href: "https://music.apple.com/album/12345")),
-        id: .init(label: "https://music.apple.com/album/12345", attributes: .init(imID: "12345")),
         artist: .init(label: "Pink Floyd", attributes: .init(href: URL(string: "https://pbs.twimg.com/profile_images/1642888479284576258/gv0ezo99_400x400.jpg")!)),
         category: .init(attributes: .init(id: "1", term: "Rock", scheme: "https://example.com", label: "Rock")),
         releaseDate: .init(label: "1973-03-01T00:00:00-07:00", attributes: .init(label: "1973-03-01"))
