@@ -9,5 +9,4 @@ import Foundation
 
 protocol AlbumDetailsViewModelProtocol: BaseViewModelProtocol {
     var album: AlbumItemResponse { get }
-    var formattedReleaseDate: String? { get }
 }

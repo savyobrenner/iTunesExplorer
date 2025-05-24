@@ -29,19 +29,4 @@ extension View {
     /// When views are used with UIHostingController, which does not provide the name of its root view,
     /// there is no way to know what view is the root view. Using this property, we can tell what view is wrapped.
     var name: String { String(describing: Self.self) }
-    
-    /**
-     * *Size*
-     *
-     * Params:
-     * - value: CGFloat
-        • The value that defines both the width and height of the view. This value is applied equally
-     *        to both dimensions, creating a square view.
-     * - alignment: Alignment
-        • (Optional) The alignment of the content within the view. The default value is .center, which
-     *     centers the content. Other values can be specified to adjust the content as needed.
-     */
-    func size(_ value: CGFloat, alignment: Alignment = .center) -> some View {
-        frame(width: value, height: value, alignment: alignment)
-    }
 }

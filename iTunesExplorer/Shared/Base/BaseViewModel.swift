@@ -20,16 +20,8 @@ class BaseViewModel<CoordinatorType: BaseCoordinator>: BaseViewModelProtocol {
     var isLoading = false
     
     var coordinator: CoordinatorType?
-
-    // MARK: - Analytics parameters
-    private var startTime: Date?
-    var screenTime: Int {
-        guard let startTime = startTime else { return 0 }
-        return Int(Date().timeIntervalSince(startTime))
-    }
     
     init(coordinator: CoordinatorType?) {
-        self.startTime = Date()
         self.coordinator = coordinator
     }
     
