@@ -20,7 +20,7 @@ struct CachedImageView<Placeholder: View>: View {
     
     var body: some View {
         if didFail {
-            Image(.imagePlaceholder)
+            Image(.teyaImagePlaceholder)
                 .resizable()
                 .scaledToFit()
         } else {
