@@ -18,7 +18,7 @@ struct SplashView<ViewModel: SplashViewModelProtocol>: View {
         ZStack {
             Color.Brand.white
             
-            LottieView(animationName: "teya_splash", loopMode: .playOnce) {
+            LottieView(animationName: "teya_splash_shorter", loopMode: .playOnce) {
                 viewModel.load()
             }
         }

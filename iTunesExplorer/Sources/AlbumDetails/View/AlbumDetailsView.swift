@@ -64,7 +64,7 @@ struct AlbumDetailsView<ViewModel: AlbumDetailsViewModelProtocol>: View {
                             .fill(Color.white)
                             .shadow(color: Color.black.opacity(0.05), radius: 10, x: 0, y: 4)
                     )
-                    .padding(.horizontal, 10)
+                    .padding(.horizontal, 16)
                 }
             }
             .ignoresSafeArea()
@@ -91,8 +91,10 @@ struct AlbumDetailsView<ViewModel: AlbumDetailsViewModelProtocol>: View {
                         .foregroundStyle(.white)
                         .padding(.horizontal, 16)
                         .padding(.vertical, 10)
+                        .frame(maxWidth: .infinity)
                         .background(Color.Brand.red)
                         .clipShape(RoundedRectangle(cornerRadius: 12))
+                        .padding(.horizontal, 24)
                         .frame(height: 40)
                     }
                 }
