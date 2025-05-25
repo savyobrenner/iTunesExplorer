@@ -23,6 +23,12 @@
         }
       }
     },
+    "album_details_back_button" : {
+
+    },
+    "album_details_offline_mode_banner" : {
+
+    },
     "error.invalid_response" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -167,6 +173,21 @@
           }
         }
       }
+    },
+    "home_loading" : {
+
+    },
+    "home_offline_banner" : {
+
+    },
+    "home_row_view_%lld" : {
+
+    },
+    "home_title" : {
+
+    },
+    "listen_on_apple_music_button" : {
+
     },
     "listen.on.apple.music" : {
       "extractionState" : "manual",
@@ -457,6 +478,9 @@
           }
         }
       }
+    },
+    "splash_animation" : {
+
     },
     "top.albums" : {
       "extractionState" : "manual",

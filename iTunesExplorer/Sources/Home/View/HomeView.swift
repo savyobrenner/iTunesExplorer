@@ -21,12 +21,14 @@ struct HomeView<ViewModel: HomeViewModelProtocol>: View {
 
             if viewModel.isLoading {
                 LoadingView()
+                    .accessibilityLabel("home_loading")
             } else {
                 VStack(spacing: 0) {
                     VStack(alignment: .leading, spacing: 8) {
                         Text(viewModel.title)
                             .font(.brand(.bold, size: 24))
                             .foregroundStyle(Color.Brand.black)
+                            .accessibilityLabel("home_title")
                     }
                     .padding()
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -39,10 +41,11 @@ struct HomeView<ViewModel: HomeViewModelProtocol>: View {
                             OfflineModeBanner()
                                 .padding(.top, 10)
                                 .padding(.horizontal, 16)
+                                .accessibilityLabel("home_offline_banner")
                         }
                         
                         LazyVStack(spacing: 12) {
-                            ForEach(viewModel.albums, id: \.id) { album in
+                            ForEach(Array(viewModel.albums.enumerated()), id: \.element.id) { index, album in
                                 AlbumRowView(
                                     imageURL: album.imageURL(for: .medium),
                                     albumName: album.name.label,
@@ -55,6 +58,7 @@ struct HomeView<ViewModel: HomeViewModelProtocol>: View {
                                 .onTapGesture {
                                     viewModel.openDetails(for: album)
                                 }
+                                .accessibilityLabel("home_row_view_\(index)")
                             }
                         }
                         .padding(.top, 16)

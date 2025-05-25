@@ -21,6 +21,7 @@ struct SplashView<ViewModel: SplashViewModelProtocol>: View {
             LottieView(animationName: "teya_splash_shorter", loopMode: .playOnce) {
                 viewModel.load()
             }
+            .accessibilityLabel("splash_animation")
         }
         .ignoresSafeArea()
     }

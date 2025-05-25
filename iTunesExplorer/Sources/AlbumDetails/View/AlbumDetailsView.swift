@@ -74,6 +74,7 @@ struct AlbumDetailsView<ViewModel: AlbumDetailsViewModelProtocol>: View {
             }
             .padding(.leading, 24)
             .padding(.top)
+            .accessibilityLabel("album_details_back_button")
             
             VStack(alignment: .center) {
                 Spacer()
@@ -96,12 +97,14 @@ struct AlbumDetailsView<ViewModel: AlbumDetailsViewModelProtocol>: View {
                         .clipShape(RoundedRectangle(cornerRadius: 12))
                         .padding(.horizontal, 24)
                         .frame(height: 40)
+                        .accessibilityLabel("listen_on_apple_music_button")
                     }
                 }
                 
                 if !viewModel.isOnline {
                     OfflineModeBanner()
                         .padding(.horizontal, 16)
+                        .accessibilityLabel("album_details_offline_mode_banner")
                 }
             }
             .frame(maxWidth: .infinity)

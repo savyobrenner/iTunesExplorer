@@ -1,0 +1,6 @@
+appId: com.brenner.iTunesExplorer
+---
+- launchApp
+- assertVisible: "splash_animation"
+- waitForAnimationToEnd
+- assertVisible: "home_loading"
