@@ -1,0 +1,5 @@
+appId: com.brenner.iTunesExplorer
+---
+- launchApp
+- assertVisible: "home_title"
+- assertVisible: "home_offline_banner"

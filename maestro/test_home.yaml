@@ -1,0 +1,6 @@
+appId: com.brenner.iTunesExplorer
+---
+- launchApp
+- assertVisible: "home_title"
+- tapOn: "home_row_view_0"
+- assertVisible: "album_details_back_button"
