@@ -87,7 +87,7 @@ maestro/
 
 ```bash
 maestro test maestro/test_splash.yaml
-maestro test maestro/test_home_load.yaml
+maestro test maestro/test_home.yaml
 ```
 
 Or run all tests inside the folder:
